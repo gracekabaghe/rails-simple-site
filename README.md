@@ -23,7 +23,18 @@ $ git clone git@github.com:gracekabaghe/rails-simple-site.git
 ```
 $ cd rails-simple-site.
 ```
-- Run <b>rails s</b> in your console.
+
+```
+rails db:create
+```
+
+```
+rails db: migrate
+```
+
+```
+rails s
+```
 
 
 ## Authors
