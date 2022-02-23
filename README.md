@@ -36,6 +36,11 @@ rails db: migrate
 rails s
 ```
 
+# Testing
+
+```
+rspec
+```
 
 ## Authors
 

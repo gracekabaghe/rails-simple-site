@@ -38,7 +38,7 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     before(:example) { get '/users/1/posts' }
 
-    it 'should returns http status' do
+    it 'should return http status' do
       expect(response).to have_http_status(:ok)
     end
 
