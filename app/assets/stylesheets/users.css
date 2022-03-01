@@ -1,0 +1,85 @@
+body {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+  justify-content: center;
+}
+
+.heading {
+ margin-left: 40%;
+}
+
+.user-card{
+  display: flex;
+  column-gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.counter-col {
+  border: 2px solid black;
+  width: 500px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.user-name {
+  margin-left: 30px;
+}
+
+.u-posts-counter {
+  margin-left: 300px;
+  font-weight: 800;
+}
+
+.users-body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.u-detail-top {
+  display: flex;
+  column-gap: 30px;
+  width: 500px;
+}
+
+.u-detail-user {
+  border: 2px solid black;
+  width: 100%;
+  padding: 20px;
+}
+
+.u-detail-user-counter {
+  margin-left: 100px;
+}
+
+.u-detail-bio {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.u-detail-rec-posts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.u-detail-rec-posts-card {
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.com-lik-counters {
+  display: flex;
+  margin-left: 270px;
+  column-gap: 5px;
+}
+
+.all-posts-btn {
+  width: 150px;
+  margin: auto;
+  text-decoration: none;
+}
