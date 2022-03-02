@@ -34,7 +34,7 @@
             <div class='post-comments'>
                 <% post.show_recent_5_comments.each do |comment| %>
                     <h3>
-                        <%= comment.user.name %>: <%= comment.text  %>
+                        <%= @user.name %>: <%= comment.text  %>
                     </h3>
                 <% end %>
             </div>

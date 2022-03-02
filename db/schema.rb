@@ -9,6 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
+
 # rubocop: disable Metrics
 
 ActiveRecord::Schema[7.0].define(version: 20_220_228_183_400) do
