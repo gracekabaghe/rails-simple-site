@@ -1,0 +1,59 @@
+.all-posts-body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.post-link {
+  text-decoration: none;
+}
+
+.post-comments {
+  border: 2px solid black;
+  margin-top: -20px;
+}
+
+.pagination-btn {
+  width: 150px;
+  margin: auto;
+  text-decoration: none;
+}
+
+.post-details-body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.post-details-p-card {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-details-top {
+  display: flex;
+  column-gap: 30px;
+  padding: 20px;
+  align-items: center;
+}
+
+.post-com-lik-counters {
+  display: flex;
+  column-gap: 15px;
+}
+
+.post-details-text {
+  padding: 20px;
+}
+
+.post-details-p-comments {
+  border: 2px solid black;
+  margin-top: -20px;
+}
+
+.heading {
+ margin-left: 40%;
+}

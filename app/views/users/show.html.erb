@@ -1,1 +1,46 @@
-<h2>Profile of <%= params[:id] %> user</h2>
+<h2 class='heading'>Profile of user number <%= params[:id] %></h2>
+<div class='users-body'>
+    <div class='u-detail-top'>
+        <div class='u-d-img'>
+            <%= image_tag 'home-view.png', width: '150px', height: '150px' %>
+        </div>
+        
+        <div class='u-detail-user'>
+            <h1 class='u-detail-user-name'>
+                <%= @user.name  %>
+            </h1>
+            <p class='u-detail-user-counter'>
+                Number of posts: <%= @user.posts_counter %>
+            </p>
+        </div>
+    </div>
+
+    <div class='u-detail-bio'>
+        <h2>Bio</h2>
+        <p>
+            <%= @user.bio %>
+        </p>
+    </div>
+
+    <div class='u-detail-rec-posts'>
+        <% @user.show_last_5_posts.each  do |post| %>
+            <div class='u-detail-rec-posts-card'>
+                <h2>
+                    Post: <%= post.title  %>
+                </h2>
+                <p>
+                    <%= post.text %>
+                </p>
+
+                <div class='com-lik-counters'>
+                    <p>Comments: <%= post.comments_counter %></p>
+                    <p>Likes: <%= post.likes_counter %></p>
+                </div>
+            </div>
+        <% end %>
+
+        <button class='all-posts-btn'>
+            <%= link_to 'See all posts', user_posts_path(@user)%>
+        </button>
+    </div>
+</div>

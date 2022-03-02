@@ -1,5 +1,5 @@
 class CreateLikes < ActiveRecord::Migration[7.0]
   def change
-    create_table :likes, &:timestamps
+    create_table :likes, &:timestamps unless table_exists? :likes
   end
 end

@@ -1,1 +1,15 @@
-<h2> Here is a list of posts for a given user</h2>
+<h2 class='heading'> Here is a list of posts</h2>
+<% @users.each do |user| %>
+    <div class='user-card'>
+        <div class='u-img'>
+            <%= image_tag 'home-view.png', width:'150px', height:'150px' %>
+        </div>
+        <div class ='counter-col'>
+            <%= link_to user_path(user.id) do %>
+                <h1 class='user-name'><%= user.name %></h1>
+            <% end %>
+            <p class='u-posts-counter'>Number of posts: <%=  user.posts_counter  %></p>     
+        </div>    
+    </div>   
+
+<%end%>
