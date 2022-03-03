@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @id = params[:id]
+    @user = User.find(@id)
+    @posts = User.recent_post(@id)
+  end
+
+  def new
+    @message = Message.new
   end
 end

@@ -1,9 +1,15 @@
 AllCops:
+  TargetRubyVersion: 3.1
   NewCops: enable
   Exclude:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "node_modules/**/*"
+    - 'bin/*'
+    - db/schema.rb
+    - test/test_helper.rb
+    - routes.rb
 
   DisplayCopNames: true
 

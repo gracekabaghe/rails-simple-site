@@ -1,15 +1,22 @@
-<h2 class='heading'> Here is a list of posts</h2>
-<% @users.each do |user| %>
-    <div class='user-card'>
-        <div class='u-img'>
-            <%= image_tag 'home-view.png', width:'150px', height:'150px' %>
-        </div>
-        <div class ='counter-col'>
-            <%= link_to user_path(user.id) do %>
-                <h1 class='user-name'><%= user.name %></h1>
-            <% end %>
-            <p class='u-posts-counter'>Number of posts: <%=  user.posts_counter  %></p>     
-        </div>    
-    </div>   
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-<%end%>
+  <body>
+
+    <% @users.each do |user| %>
+    <%= link_to user_path(user), :remote => true do %>
+    <%= render "partials/user", user: user %>
+    
+    <% end %>
+    <% end %>
+
+  </body>
+</html>

@@ -1,46 +1,35 @@
-<h2 class='heading'>Profile of user number <%= params[:id] %></h2>
-<div class='users-body'>
-    <div class='u-detail-top'>
-        <div class='u-d-img'>
-            <%= image_tag 'home-view.png', width: '150px', height: '150px' %>
-        </div>
-        
-        <div class='u-detail-user'>
-            <h1 class='u-detail-user-name'>
-                <%= @user.name  %>
-            </h1>
-            <p class='u-detail-user-counter'>
-                Number of posts: <%= @user.posts_counter %>
-            </p>
-        </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <%= render "partials/user", user: @user %>
+  <div class="bio">
+        <h3>Bio</h3>
+        <p><%=@user.bio%></p>
     </div>
 
-    <div class='u-detail-bio'>
-        <h2>Bio</h2>
-        <p>
-            <%= @user.bio %>
-        </p>
-    </div>
 
-    <div class='u-detail-rec-posts'>
-        <% @user.show_last_5_posts.each  do |post| %>
-            <div class='u-detail-rec-posts-card'>
-                <h2>
-                    Post: <%= post.title  %>
-                </h2>
-                <p>
-                    <%= post.text %>
-                </p>
+    <% @posts.each do |post| %>
+    <%= render "partials/post", post: post %>
+    <% end %>
 
-                <div class='com-lik-counters'>
-                    <p>Comments: <%= post.comments_counter %></p>
-                    <p>Likes: <%= post.likes_counter %></p>
-                </div>
-            </div>
+
+    <div class="btn">
+       <%= link_to @id + '/posts', :remote => true do %>
+        <input type="button" class="btn btn-secondary" value="See all posts">
         <% end %>
-
-        <button class='all-posts-btn'>
-            <%= link_to 'See all posts', user_posts_path(@user)%>
-        </button>
+      <%= link_to @id + '/posts/new', :remote => true do %>
+        <input type="button" class="btn btn-secondary" value="Create a post">
+        <% end %>
     </div>
-</div>
+
+</body>
+</html>
