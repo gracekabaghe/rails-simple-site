@@ -5,10 +5,10 @@ class LikesController < ActionController::Base
     @like = Like.create(user_id: user.id, post_id: user_post.id)
     if @like.save
       Like.count_likes(user_post.id)
-      flash[:success] = 'Your like has been added!'
+      flash[:success] = 'Great! your like has been added!'
 
     else
-      flash.now[:error] = 'Like could not be added'
+      flash.now[:error] = 'Sorry! Like could not be added'
     end
     redirect_to user_post_path(user.id, user_post.id)
   end
