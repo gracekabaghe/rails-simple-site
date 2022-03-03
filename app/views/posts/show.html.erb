@@ -1,32 +1,60 @@
-<h2 class='heading'> Posts for user number <%= params[:id] %></h2>
-<div class='post-details-body'>
-    <div class='post-details-p-card'>
-        <div class='post-details-top'>
-            <h3>
-                <%= @post.title %> by <%= @user.name %>
-            </h3>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-            <div class='post-com-lik-counters'>
-                <p>
-                    Comments: <%= @post.comments_counter%>
-                </p>
-                <p>
-                    Likes: <%= @post.likes_counter%>
-                </p>
+  <body>
+
+    <div class="post-heading">
+        <div class="flex-post">
+            <p><strong><%=@post.title%></strong> by <strong><%=@user.name%></strong></p>
+            <div class="flex-comment">
+                <p>Comments:  <%=@post.comments_counter%></p>
+                <p>Likes:  <%=@post.likes_counter%></p>
             </div>
         </div>
-
-        <p class='post-details-text'>
-            <%= @post.text %>
-        </p>
+        <p><%=@post.text%></p>
     </div>
-
-    <div class='post-details-p-comments'>
-        <% @comments.each do |comment| %>
-            <p>
-                <%= @user.name%>: <%= comment.text%>
-            </p>
+    <div class="comments">
+        <%@comments.each do |comment|%>
+        <p><strong><%=@user.name%>: <%=comment.text%></strong></p>
         <% end %>
     </div>
 
-</div>
+    <div class="space"></div>
+
+  <h2>Add a comment</h2>
+
+  <%= form_with model: @comment, url: user_post_comments_path(@user.id, @post.id) do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :text %>
+    <%= f.text_area :text, class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+  
+<% end %>
+
+    <div class="space"></div>
+
+  <h2>Add a Like</h2>
+
+  <%= form_with model: @like, url: user_post_likes_path(@user.id, @post.id) do |f| %>
+
+  <div class="mb-3">
+    <%= f.submit  class: "btn btn-primary" %>
+  </div>
+  
+<% end %>
+
+  </body>
+</html>

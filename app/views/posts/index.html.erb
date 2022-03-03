@@ -1,47 +1,24 @@
-<h2 class='heading'> Post interactions for a given user </h2>
-<div class='all-posts-body'>
-    <div class='u-detail-top'>
-        <div class='u-d-img'>
-            <%= image_tag 'home-view.png', width: '150px', height: '150px' %>
-        </div>
-        
-        <div class='u-detail-user'>
-            <h1 class='u-detail-user-name'>
-                <%= @user.name  %>
-            </h1>
-            <p class='u-detail-user-counter'>
-                Number of posts: <%= @user.posts_counter %>
-            </p>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "posts", "users", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-    <div class='u-detail-rec-posts'>
-        <% @posts.each  do |post| %>
-            <div class='u-detail-rec-posts-card'>
-                <h2>
-                    <%= link_to "#{post.title}", user_post_path(@user.id, post.id), class: 'post-link' %>
-                </h2>
-                <p>
-                    <%= post.text %>
-                </p>
+  <body>
 
-                <div class='com-lik-counters'>
-                    <p>Comments: <%= post.comments_counter %></p>
-                    <p>Likes: <%= post.likes_counter %></p>
-                </div>
-            </div>
+    <%= render "partials/user", user: @user %>
+    <% @posts.each do |post| %>
+    <%= link_to 'posts/' + post.id.to_s, :remote => true do %>
+    <%= render "partials/post", post: post %>
+    <% end %>
+    <%= render "partials/comment", post: post %>
+    <% end %>
 
-            <div class='post-comments'>
-                <% post.show_recent_5_comments.each do |comment| %>
-                    <h3>
-                        <%= @user.name %>: <%= comment.text  %>
-                    </h3>
-                <% end %>
-            </div>
-        <% end %>
 
-        <button class='pagination-btn'>
-            Pagination
-        </button>
-    </div>
-</div>
+  </body>
+</html>

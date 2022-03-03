@@ -13,3 +13,127 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+body {
+  padding-inline: 30px;
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-card img {
+  width: 125px;
+  height: 150px;
+  border: 2px solid orange;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  margin: 10px;
+  height: 150px;
+}
+
+.info h2 {
+  font-size: 35px;
+}
+
+.info p,
+.bio p,
+.post p {
+  font-size: 20px;
+}
+
+.bio {
+  border: 1px solid black;
+  height: 135px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.bio h3 {
+  font-size: 30px;
+}
+
+.post {
+  border: 1px solid black;
+  height: 120px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.post h3 {
+  font-size: 30px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 10px 0;
+}
+
+.spam {
+  display: flex;
+  justify-content: end;
+  margin-top: 0;
+}
+
+.spam p {
+  margin-inline: 10px;
+}
+
+.comments {
+  border: 1px solid black;
+  margin-top: 20px;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.post-heading {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.flex-post {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-comment {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-comment p {
+  margin-inline: 10px;
+}
+
+.space {
+  margin-bottom: 60px;
+}
+
+input {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.post_counter {
+  padding-left: 10px;
+}
