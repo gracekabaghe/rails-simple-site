@@ -9,12 +9,10 @@ class LikesController < ActionController::Base
     if @like.save
       Like.count_likes(user_post.id)
       flash[:success] = 'Your comment has been added!'
-      redirect_to user_post_path(user.id, user_post.id)
 
     else
       flash.now[:error] = 'Comment could not be added'
-      redirect_to user_post_path(user.id, user_post.id)
     end
+    redirect_to user_post_path(user.id, user_post.id)
   end
 end
-

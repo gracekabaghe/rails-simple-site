@@ -23,7 +23,7 @@
     </div>
     <div class="comments">
         <%@comments.each do |comment|%>
-        <p><strong><%=@user.name%>:</strong></p>
+        <p><strong><%=@user.name%>: <%=comment.text%></strong></p>
         <% end %>
     </div>
 
