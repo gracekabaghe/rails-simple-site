@@ -4,6 +4,9 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, :likes_counter, numericality: { greater_than_or_equal_to: 0 }
+
   def self.recent_comments(id)
     Comment.where(post_id: id).limit(5)
   end
