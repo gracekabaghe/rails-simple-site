@@ -28,10 +28,10 @@ class PostsController < ApplicationController
       format.html do
         if add_post.save
           Post.count_post(params[:user_id])
-          flash[:success] = 'Post created successfully'
+          flash[:success] = 'Your Post has been created'
           redirect_to user_posts_url
         else
-          flash.now[:error] = 'Error: Post could not be created'
+          flash.now[:error] = 'Error: Sorry post could not be created'
           render :new, locals: { post: add_post }
         end
       end

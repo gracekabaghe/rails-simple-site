@@ -6,10 +6,10 @@ class CommentsController < ActionController::Base
 
     if @new_comment.save
       Comment.count_comments(@post.id)
-      flash[:success] = 'Your comment has been added!'
+      flash[:success] = 'Great! Your comment has been added!'
       redirect_to user_post_path(@user, @post)
     else
-      flash.now[:error] = 'Comment could not be added'
+      flash.now[:error] = 'Sorry! comment could not be added'
     end
   end
 
