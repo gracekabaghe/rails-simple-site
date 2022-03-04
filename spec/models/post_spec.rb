@@ -6,7 +6,12 @@ RSpec.describe Post, type: :model do
 
   before { subject.save }
 
-  it 'return the recent comments for a post' do
+  it 'check if the title is not blank' do
+      subject.title = ''
+      expect(subject).to_not be_valid
+    end
+
+it 'return the recent comments for a post' do
     expect(Post.recent_comments(subject.id).count).to eql 0
   end
 
