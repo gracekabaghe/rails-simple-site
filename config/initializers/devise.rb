@@ -1,5 +1,22 @@
 # frozen_string_literal: true
 
+#  config.mailer_sender = "gracema2002@gmail.com"
+
+#  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+# config.action_mailer.delivery_method = :smtp
+# config.action_mailer.perform_deliveries = true
+# config.action_mailer.raise_delivery_errors = true
+# config.action_mailer.default :charset => "utf-8"
+
+# ActionMailer::Base.smtp_settings = {
+#   :address => "smtp.gmail.com",
+#   :port => 587,
+#   :authentication => :plain,
+#   :domain => ENV['GMAIL_SMTP_USER'],
+#   :user_name => ENV['GMAIL_SMTP_USER'],
+#   :password => ENV['GMAIL_SMTP_PASSWORD'],
+# }
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -24,7 +41,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'gracema2002@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
