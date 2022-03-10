@@ -32,9 +32,6 @@ RSpec.describe 'Post Index', type: :feature do
       expect(image.size).to eql(0)
     end
 
-   
-    
-
     it 'can see some of the body for the post.' do
       expect(page).to have_content('test text')
     end

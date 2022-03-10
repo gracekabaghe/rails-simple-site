@@ -29,5 +29,25 @@ RSpec.describe 'Post Show', type: :feature do
     it 'can see the username of each commentor' do
       expect(page).to have_content('Grayce')
     end
+
+    it 'I can see the post title' do
+      expect(page).to have_content('Grayce')
+    end
+
+    it 'I can see how many likes it has' do
+      expect(page).to have_content('Grayce')
+    end
+
+    it 'I can see the post body' do
+      expect(page).to have_content('Grayce')
+    end
+
+    it 'I can see the comment each commentor left' do
+      expect(page).to have_content('Grayce')
+    end
+
+    it 'I can see how many comments it has' do
+      expect(page).to have_content('Grayce')
+    end
   end
 end
