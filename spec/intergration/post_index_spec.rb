@@ -27,6 +27,10 @@ RSpec.describe 'Post Index', type: :feature do
       expect(page).to have_content('Grayce')
     end
 
+    it 'shows posts title' do
+      expect(page).to have_content('test title')
+    end
+
     it 'shows the photo for ther user' do
       image = page.all('img')
       expect(image.size).to eql(0)
@@ -46,10 +50,6 @@ RSpec.describe 'Post Index', type: :feature do
 
     it 'can see how many likes a post has' do
       expect(page).to have_content('Likes')
-    end
-
-    it 'shows posts title' do
-      expect(page).to have_content(‘test title’)
     end
   end
 end
