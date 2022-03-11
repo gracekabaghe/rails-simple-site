@@ -47,5 +47,9 @@ RSpec.describe 'Post Index', type: :feature do
     it 'can see how many likes a post has' do
       expect(page).to have_content('Likes')
     end
+
+    it 'shows posts title' do
+      expect(page).to have_content(‘test title’)
+    end 
   end
 end
