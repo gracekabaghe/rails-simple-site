@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery prepend: true
+  before_action :authenticate_with_token
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
-  # before_action :authenticate_user!
   before_action :update_allowed_parameters, if: :devise_controller?
-
-  # before_action :update_allowed_parameters, if: :devise_controller?
 
   protected
 
@@ -14,10 +12,11 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :surname, :email, :password, :current_password)
     end
   end
+  
+  def authenticate_with_token
+    return unless params[:apitoken]
 
-  # protected
-
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :name, :password, :password_confirmation])
-  # end
+    user = User.find_by_api_token(params[:apitoken])
+    sign_in(user)
+  end
 end

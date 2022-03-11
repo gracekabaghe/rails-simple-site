@@ -13,4 +13,9 @@ class UsersController < ApplicationController
   def new
     @message = Message.new
   end
+
+  def apitoken
+    @user = User.find(params[:id])
+    render json: @user.apitoken, status: :ok
+  end
 end
