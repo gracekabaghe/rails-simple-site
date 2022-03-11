@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   # validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
-   after_create :generate_api_token
+  after_create :generate_api_token
 
   def self.recent_post(id)
     Post.where(user_id: id).limit(3)

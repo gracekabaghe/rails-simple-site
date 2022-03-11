@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :surname, :email, :password, :current_password)
     end
   end
-  
+
   def authenticate_with_token
     return unless params[:apitoken]
 
