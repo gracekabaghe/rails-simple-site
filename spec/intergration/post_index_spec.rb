@@ -50,6 +50,6 @@ RSpec.describe 'Post Index', type: :feature do
 
     it 'shows posts title' do
       expect(page).to have_content(‘test title’)
-    end 
+    end
   end
 end
