@@ -49,7 +49,6 @@
   <h2>Add a Like</h2>
 
   <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |f| %>
-
   <div class="mb-3">
     <%= f.submit "Like", class: "btn btn-primary" %>
   </div>

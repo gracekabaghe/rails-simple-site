@@ -42,12 +42,43 @@ rails s
 rspec
 ```
 
+# API End Points
+
+- `GET` user with the id:
+
+``````
+/api/v1/users/(user_id)
+``````
+
+- `GET` user's post:
+
+```
+/api/v1/users/(user_id)/posts
+```
+
+- `GET` user's comments:
+
+```
+/api/v1/users/(user_id)/posts/(post_id)/comments
+```
+
+- `POST` user's new comment:
+
+```
+/api/v1/users/(user_id)/posts/(post_id)/comments
+```
+
 ## Authors
 
 👤 **Grace Kabaghe**
 
 - GitHub: [@gracekabaghe](https://github.com/gracekabaghe)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/grace-kabaghe)
+
+👤 **Orçun Uğur**
+
+- GitHub: [@githubhandle](https://github.com/luftedar)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/orcunugur)
 
 
 ## 🤝 Contributing
