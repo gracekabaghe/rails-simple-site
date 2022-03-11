@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   # validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
+  after_create :generate_api_token
 
   def self.recent_post(id)
     Post.where(user_id: id).limit(3)
@@ -17,5 +18,10 @@ class User < ApplicationRecord
 
   def self.all_post(id)
     Post.where(user_id: id)
+  end
+
+  def generate_api_token
+    self.apitoken = Devise.friendly_token
+    save
   end
 end

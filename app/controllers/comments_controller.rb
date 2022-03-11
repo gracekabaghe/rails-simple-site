@@ -1,15 +1,18 @@
 class CommentsController < ActionController::Base
   def create
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:post_id])
-    @new_comment = @post.comments.new(user_id: @user.id, post_id: @post_id, text: comment_params['text'])
-
+    @post = Post.find(params[:post_id])
+    @new_comment = current_user.comments.new(
+      text: comment_params,
+      user_id: current_user.id,
+      post_id: @post.id
+    )
+    @new_comment.post_id = @post.id
+    @new_comment.update_comments_counter
     if @new_comment.save
-      Comment.count_comments(@post.id)
-      flash[:success] = 'Great! Your comment has been added!'
-      redirect_to user_post_path(@user, @post)
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", flash: { alert: 'Posted Your Comment' }
     else
-      flash.now[:error] = 'Sorry! comment could not be added'
+      flash.now[:error] = 'Failed to save comment'
+      render action: 'new'
     end
   end
 
