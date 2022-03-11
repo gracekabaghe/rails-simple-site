@@ -30,7 +30,7 @@ RSpec.describe 'User Show', type: :feature do
     end
 
     it 'shows number of posts for the user' do
-      expect(page).to have_content('grayce')
+      expect(page).to have_content('Posts')
     end
 
     it 'shows the bio for the user' do
@@ -44,11 +44,12 @@ RSpec.describe 'User Show', type: :feature do
     end
 
     it 'Can see a button that lets me view all of a users posts' do
-      expect(page).to have_button('See all posts')
+      expect(page).to have_button 'See all posts'
     end
 
     it 'When I click to see all posts, it redirects me to the user\'s post\'s show page.' do
-      expect(page).to have_content 'grayce'
+      click_button 'See all posts'
+      expect(page).to have_content 'Posts'
     end
   end
 end
