@@ -1,15 +1,15 @@
 class LikesController < ActionController::Base
   def create
-    user_post = Post.find(params[:post_id])
-    user = User.find(params[:user_id])
-    @like = Like.create(user_id: user.id, post_id: user_post.id)
-    if @like.save
-      Like.count_likes(user_post.id)
-      flash[:success] = 'Great! your like has been added!'
-
+    @post = Post.find(params[:post_id])
+    new_like = current_user.likes.new(
+      user_id: current_user.id,
+      post_id: @post.id
+    )
+    new_like.update_likes_counter
+    if new_like.save
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", flash: { alert: 'Your like is saved' }
     else
-      flash.now[:error] = 'Sorry! Like could not be added'
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", flash.now[:error] = 'Could not save like'
     end
-    redirect_to user_post_path(user.id, user_post.id)
   end
 end

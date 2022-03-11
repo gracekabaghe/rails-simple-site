@@ -31,7 +31,7 @@
 
   <h2>Add a comment</h2>
 
-  <%= form_with model: @comment, url: user_post_comments_path(@user.id, @post.id) do |f| %>
+  <%= form_with url: "/posts/#{@post.id}/comments", scope: :comment do |f| %>
 
   <div class="mb-3">
     <%= f.label :text %>
@@ -39,7 +39,7 @@
   </div>
 
   <div class="mb-3">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit "Comment", class: "btn btn-primary" %>
   </div>
   
 <% end %>
@@ -48,10 +48,10 @@
 
   <h2>Add a Like</h2>
 
-  <%= form_with model: @like, url: user_post_likes_path(@user.id, @post.id) do |f| %>
+  <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |f| %>
 
   <div class="mb-3">
-    <%= f.submit  class: "btn btn-primary" %>
+    <%= f.submit "Like", class: "btn btn-primary" %>
   </div>
   
 <% end %>
